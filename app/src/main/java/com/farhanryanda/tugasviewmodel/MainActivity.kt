@@ -8,6 +8,7 @@ import com.farhanryanda.tugasviewmodel.adapter.NewsAdapter
 import com.farhanryanda.tugasviewmodel.data.News
 import com.farhanryanda.tugasviewmodel.databinding.ActivityMainBinding
 import com.farhanryanda.tugasviewmodel.databinding.NewsItemBinding
+import com.farhanryanda.tugasviewmodel.fragment.HomeFragment
 import com.farhanryanda.tugasviewmodel.viewmodel.NewsViewModel
 
 class MainActivity : AppCompatActivity() {
@@ -29,5 +30,9 @@ class MainActivity : AppCompatActivity() {
 //        newsViewModel.listNews.observe(this, {
 //            newsAdapter.setDataNews(it as ArrayList<News> /* = java.util.ArrayList<com.farhanryanda.tugasviewmodel.data.News> */)
 //        })
+
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.add(R.id.fc_main, HomeFragment())
+        fragmentTransaction.commit()
     }
 }

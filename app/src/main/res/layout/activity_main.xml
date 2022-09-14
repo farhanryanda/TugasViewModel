@@ -6,17 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:id="@+id/rv_main"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        tools:listitem="@layout/news_item"/>-->
+    <!--    <androidx.recyclerview.widget.RecyclerView-->
+    <!--        android:id="@+id/rv_main"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        tools:listitem="@layout/news_item"/>-->
 
-    <fragment
-        android:id="@+id/container"
-        android:name="androidx.navigation.fragment.NavHostFragment"
+    <!--    <fragment-->
+    <!--        android:id="@+id/container"-->
+    <!--        android:name="androidx.navigation.fragment.NavHostFragment"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        app:defaultNavHost="true"-->
+    <!--        app:navGraph="@navigation/nav_main" />-->
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fc_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:defaultNavHost="true"
-        app:navGraph="@navigation/nav_main" />
+        android:layout_height="match_parent" />
 </LinearLayout>

@@ -47,11 +47,20 @@ class NewsAdapter(var listNews: ArrayList<News>): RecyclerView.Adapter<NewsAdapt
 //            intent.putExtras(bundle)
 //            context.startActivity(intent)
 
+//            val detailNewsFragment = DetailNewsFragment()
+//            val bundle = Bundle()
+//            bundle.putSerializable("news",listNews[position])
+//            detailNewsFragment.arguments = bundle
+//            it.findNavController().navigate(R.id.action_homeFragment_to_detailNewsFragment,bundle)
+
             val detailNewsFragment = DetailNewsFragment()
             val bundle = Bundle()
             bundle.putSerializable("news",listNews[position])
             detailNewsFragment.arguments = bundle
-            it.findNavController().navigate(R.id.action_homeFragment_to_detailNewsFragment,bundle)
+            var activity : AppCompatActivity = holder.itemView.context as AppCompatActivity
+            activity.supportFragmentManager.beginTransaction().replace(R.id.fc_main,detailNewsFragment)
+                .addToBackStack(null)
+                .commit()
         }
     }
 

@@ -12,10 +12,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.menu.MenuView
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat.startActivity
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.farhanryanda.tugasviewmodel.DetailNewsActivity
 import com.farhanryanda.tugasviewmodel.R
 import com.farhanryanda.tugasviewmodel.data.News
+import com.farhanryanda.tugasviewmodel.fragment.DetailNewsFragment
 
 class NewsAdapter(var listNews: ArrayList<News>): RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
@@ -38,12 +40,18 @@ class NewsAdapter(var listNews: ArrayList<News>): RecyclerView.Adapter<NewsAdapt
         holder.tanggal.text = listNews[position].tanggal
         holder.desc.text = listNews[position].descNews
         holder.cvNews.setOnClickListener {
+//            val bundle = Bundle()
+//            bundle.putSerializable("news",listNews[position])
+//            val context = holder.itemView.context
+//            val intent = Intent(context, DetailNewsActivity::class.java)
+//            intent.putExtras(bundle)
+//            context.startActivity(intent)
+
+            val detailNewsFragment = DetailNewsFragment()
             val bundle = Bundle()
             bundle.putSerializable("news",listNews[position])
-            val context = holder.itemView.context
-            val intent = Intent(context, DetailNewsActivity::class.java)
-            intent.putExtras(bundle)
-            context.startActivity(intent)
+            detailNewsFragment.arguments = bundle
+            it.findNavController().navigate(R.id.action_homeFragment_to_detailNewsFragment,bundle)
         }
     }
 

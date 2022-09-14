@@ -18,16 +18,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        newsAdapter = NewsAdapter(ArrayList())
-        binding.rvMain.adapter = newsAdapter
-        val lm = LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
-        binding.rvMain.layoutManager = lm
-
-        newsViewModel = ViewModelProvider(this).get(NewsViewModel::class.java)
-        newsViewModel.getNews()
-        newsViewModel.listNews.observe(this, {
-            newsAdapter.setDataNews(it as ArrayList<News> /* = java.util.ArrayList<com.farhanryanda.tugasviewmodel.data.News> */)
-        })
+//
+//        newsAdapter = NewsAdapter(ArrayList())
+//        binding.rvMain.adapter = newsAdapter
+//        val lm = LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
+//        binding.rvMain.layoutManager = lm
+//
+//        newsViewModel = ViewModelProvider(this).get(NewsViewModel::class.java)
+//        newsViewModel.getNews()
+//        newsViewModel.listNews.observe(this, {
+//            newsAdapter.setDataNews(it as ArrayList<News> /* = java.util.ArrayList<com.farhanryanda.tugasviewmodel.data.News> */)
+//        })
     }
 }
